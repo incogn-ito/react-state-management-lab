@@ -1,13 +1,11 @@
 
 import './App.css'
 
-function App() {
-  const App = () => {
-    
+function App() {    
     return (
       <h1>Hello world!</h1>
     );
   }
-}
+
   
   export default App
