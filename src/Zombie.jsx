@@ -33,8 +33,8 @@ return (
     <h1>Zombie Fighters</h1>
     {money < 10 ? (<h2>Not enough money</h2>) : (<h2>Money: ${money}</h2>)}
     <ul>
-        {zombieFighters.map((fighter) => (
-            <li key={fighter._id}>
+        {zombieFighters.map((fighter, index) => (
+            <li key={`${fighter.name}-${index}`}>
                 <img src={fighter.img} alt={fighter.name}/>
                 <h3>{fighter.name}</h3>
                 <p>Price: ${fighter.price}</p>
@@ -51,14 +51,17 @@ return (
         <p>Pick some team members!</p>
       ) : (
       <ul>
-        {team.map((fighter) => (
-          <li key={fighter._id}>
-            {fighter.name}
+        {team.map((fighter, index) => (
+          <li key={`${fighter.name}-${index}`}>
+                <img src={fighter.img} alt={fighter.name}/>
+                <h3>{fighter.name}</h3>
+                <p>Price: ${fighter.price}</p>
+                <p>Strength: {fighter.strength}</p>
+                <p>Agility: {fighter.agility}</p>
           </li>
-        ))}
+          ))}
       </ul>
-      )}
+    )}
     </div>
     </>
-    )
-  }
+    )}
