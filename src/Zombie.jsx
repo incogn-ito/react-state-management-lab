@@ -10,7 +10,7 @@ function handleAddClick(fighter) {
         setTeam([...team, fighter])
         setMoney(money - fighter.price)
     } else {
-        console.log("Not enough money")
+        console.log("Not enough money") // not sure if I need this, but just in case I'll leave it.
         }
     }
 
@@ -31,10 +31,10 @@ return (
     <>
     <div>
     <h1>Zombie Fighters</h1>
-    <h2>Money: ${money}</h2>
+    {money < 10 ? (<h2>Not enough money</h2>) : (<h2>Money: ${money}</h2>)}
     <ul>
-        {zombieFighters.map((fighter, index) => (
-            <li key={`${fighter.name}-${index}`}>
+        {zombieFighters.map((fighter) => (
+            <li key={fighter._id}>
                 <img src={fighter.img} alt={fighter.name}/>
                 <h3>{fighter.name}</h3>
                 <p>Price: ${fighter.price}</p>
@@ -47,6 +47,9 @@ return (
         ))}
     </ul>
       <h2>Your Team:</h2>
+      {team.length === 0 ? (
+        <p>Pick some team members!</p>
+      ) : (
       <ul>
         {team.map((fighter) => (
           <li key={fighter._id}>
@@ -54,6 +57,8 @@ return (
           </li>
         ))}
       </ul>
+      )}
     </div>
     </>
-)}
+    )
+  }
