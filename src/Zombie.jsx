@@ -17,18 +17,14 @@ function handleAddClick(fighter) {
         console.log("Not enough money") // not sure if I need this, but just in case I'll leave it.
     }
   }
-  /*
-  function handleMoreClick() {
-    setShowMore(!showMore);
-  }
 
-  function handleBackClick() {
-    if (index >= 1) {
-      setIndex(index - 1)
-    }
+  function handleRemoveFighter(fighter) {
+    const updatedTeam = team.filter((teamMate) => teamMate !== fighter)
+    setTeam(updatedTeam)
+    setMoney(money + fighter.price)
+    setTotalStrength(totalStrength - fighter.strength)
+    setTotalAgility(totalAgility - fighter.agility)
   }
-
-*/
 
 return (
     <>
@@ -63,6 +59,9 @@ return (
                 <p>Price: ${fighter.price}</p>
                 <p>Strength: {fighter.strength}</p>
                 <p>Agility: {fighter.agility}</p>
+                <button onClick={() => handleRemoveFighter(fighter)}>
+                    Remove
+                </button>
           </li>
           ))}
       </ul>
