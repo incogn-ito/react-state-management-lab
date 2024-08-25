@@ -1,4 +1,4 @@
-const zombieList =
+const zombieFighters =
 [
     {
       name: 'Survivor',
@@ -73,5 +73,5 @@ const zombieList =
   ];
 
   export {
-    zombieList
+    zombieFighters
   }

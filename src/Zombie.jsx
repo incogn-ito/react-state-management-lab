@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { zombieList } from "./data.js";
+import { zombieFighters } from "./data.js";
 
 export default function Zombie() {
-    // const [money, setMoney] = useState(100)
-    // let team = []
-    // let zombieFighters = zombieList[index]
+    const [money, setMoney] = useState(100);
+    const [team, setTeam] = useState([]);
 
-
-/*
- function handleAddFighter() {
-    set(index + 1);
+function handleAddClick(fighter) {
+    if (money >= fighter.price) {
+        setTeam([...team, fighter])
+        setMoney(money - fighter.price)
+    } else {
+        console.log("Not enough money")
+        }
     }
-  }
 
+  /*
   function handleMoreClick() {
     setShowMore(!showMore);
   }
@@ -27,8 +29,23 @@ export default function Zombie() {
 
 return (
     <>
+    <div>
     <h1>Zombie Fighters</h1>
-
+    <h2>Money: ${money}</h2>
+    <ul>
+        {zombieFighters.map((fighter, index) => (
+            <li key={`${fighter.name}-${index}`}>
+                <img src={fighter.img} alt={fighter.name}/>
+                <h3>{fighter.name}</h3>
+                <p>Price: ${fighter.price}</p>
+                <p>Strength: {fighter.strength}</p>
+                <p>Agility: {fighter.agility}</p>
+                <button onClick={() => handleAddClick(fighter)}>
+                    Add
+                </button>
+            </li>
+        ))}
+    </ul>
+    </div>
     </>
-)
-}
+)}
