@@ -46,6 +46,14 @@ return (
             </li>
         ))}
     </ul>
+      <h2>Your Team:</h2>
+      <ul>
+        {team.map((fighter) => (
+          <li key={fighter._id}>
+            {fighter.name}
+          </li>
+        ))}
+      </ul>
     </div>
     </>
 )}
